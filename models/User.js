@@ -16,22 +16,6 @@ User.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  workoutPrefId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-        model: 'WorkoutPref',
-        key: 'id'
-    }
-  },
-  loginId: {
-    type: DataTypes.INTEGER,
-    allowNull: true,
-    references: {
-        model: 'Login',
-        key: 'id'
-    }
-  },
   firstName: {
     type: DataTypes.STRING,
     allowNull: false,

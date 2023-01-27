@@ -2,8 +2,11 @@ const { Login } = require('../models');
 
 const loginData = [
     {
-        id: 2,
+        id: 100,
+        userId: 1,
         username: "nosbeto",
+        pwd: 'password'
+        
     }
 ]
 

@@ -16,6 +16,14 @@ Login.init({
     primaryKey: true,
     autoIncrement: true,
   },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+        model: 'user',
+        key: 'id'
+    }
+  },
   username: {
     type: DataTypes.STRING,
     allowNull:false,
@@ -25,6 +33,10 @@ Login.init({
         len: [6,13],
         not: ["^[a-z]+$",'i']
     }
+  },
+  pwd: {
+    type:DataTypes.STRING,
+    allowNull: false
   }
 },
 {

@@ -2,20 +2,26 @@
 const User = require("./User");
 const Login = require("./Login");
 const WorkoutPref = require("./WorkoutPref");
-const Difficulty = require('./Difficulty');
 
-// User belongsTo WorkoutPref
-User.belongsTo(WorkoutPref)
+User.hasOne(WorkoutPref)
+
+WorkoutPref.belongsTo(User, {
+    foreignKey: "userId",
+    onDelete: 'CASCADE',
+})
+
 
 // User belongsTo Login
-User.belongsTo(Login)
+User.hasOne(Login)
 
-// WorkoutPref belongsTo Difficulty
-WorkoutPref.belongsTo(Difficulty)
+Login.belongsTo(User, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+})
+
 
 module.exports = {
+    User,
     WorkoutPref, 
-    Difficulty, 
     Login, 
-    User
 }

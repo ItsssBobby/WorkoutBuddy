@@ -16,21 +16,37 @@ WorkoutPref.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  difficultyId: {
+  userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-        model: 'Difficulty',
+        model: 'user',
         key: 'id'
     }
   },
   workoutType: {
-    type: DataTypes.STRING,
+    type: DataTypes.ENUM,
+    values: [
+      "cardio",
+      'olympic_weightlifting',
+      'plyometrics',
+      'powerlifting',
+      'strength',
+      'stretching',
+      'strongman'],
     allowNull: false,
     validate: {
         isAlpha: true,
         notContains: " ",
       },
+  },
+  difficulty: {
+    type: DataTypes.ENUM,
+    values: [
+      'beginner',
+'intermediate',
+'expert'
+    ]
   }
 },
 {

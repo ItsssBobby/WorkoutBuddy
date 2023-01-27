@@ -2,8 +2,9 @@ const { WorkoutPref } = require('../models');
 
 const workoutPrefData = [
     {
-        difficultyId: 100,
-        workoutType: "strength"
+        userId: 1,
+        workoutType: "strength",
+        difficulty: "intermediate",
     }
 ]
 
