@@ -2,6 +2,7 @@
 const User = require("./User");
 const Login = require("./Login");
 const WorkoutPref = require("./WorkoutPref");
+const Post = require("./Post");
 
 User.hasOne(WorkoutPref)
 
@@ -20,8 +21,16 @@ Login.belongsTo(User, {
 })
 
 
+User.hasMany(Post)
+
+Post.belongsTo(User, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+})
+
 module.exports = {
     User,
     WorkoutPref, 
     Login, 
+    Post,
 }
