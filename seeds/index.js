@@ -1,8 +1,10 @@
 const seedLogins = require('./seeds-login');
 const seedUsers = require('./seeds-user');
 const seedWorkoutPref = require('./seeds-workoutPref');
+const seedPost = require('./seeds-post');
 
 const sequelize = require('../config/connection');
+
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });
@@ -16,6 +18,9 @@ const seedAll = async () => {
   
     await seedWorkoutPref();
     console.log('\n----- WORKOUT PREFERENCES SEEDED -----\n');
+
+    await seedPost();
+    console.log('\n----- POSTS SEEDED -----\n')
     
     process.exit(0);
   };

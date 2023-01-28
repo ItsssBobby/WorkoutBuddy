@@ -5,11 +5,11 @@ const { Model, DataTypes } = require("sequelize");
 // import our database connection from config.js
 const sequelize = require("../config/connection");
 
-// Initialize Product model (table) by extending off Sequelize's Model class
-class Login extends Model {}
+// Initialize Post model (table) by extending off Sequelize's Model class
+class Post extends Model {}
 
-// set up fields and rules for Product model
-Login.init(
+// set up fields and rules for Post model
+Post.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -25,19 +25,8 @@ Login.init(
         key: "id",
       },
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isLowercase: true,
-        notNull: true,
-        len: [6, 13],
-        not: ["^[a-z]+$", "i"],
-      },
-    },
-    pwd: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    post: {
+      type: DataTypes.TEXT,
     },
   },
   {
@@ -45,8 +34,8 @@ Login.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "login",
+    modelName: "post",
   }
 );
 
-module.exports = Login;
+module.exports = Post;
