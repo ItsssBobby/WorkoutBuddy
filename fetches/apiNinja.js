@@ -1,19 +1,12 @@
-require('dotenv').config();
-const axios = require("axios");
-
-const options = {
-  method: 'GET',
-  url: 'https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises',
-  params: {muscle: 'biceps'},
+var muscle = 'biceps';
+fetch (`https://api.api-ninjas.com/v1/exercises?muscle=${muscle}` , {
   headers: {
-    'X-RapidAPI-Key': process.env.API_NINJA,
-    'X-RapidAPI-Host': 'exercises-by-api-ninjas.p.rapidapi.com'
-  }
-};
-
-
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
-});
+    'X-Api-Key': 'YeXnj8j9ucRYQoYZRqppcw==JdSJPgGAPE7ZjzMs'
+  },
+})
+.then((response) => {
+  return response.json();
+})
+.then(data => {
+  console.log(data);
+})
