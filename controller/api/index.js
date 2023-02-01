@@ -5,8 +5,8 @@ const postRoutes = require('./postRoutes');
 const workoutPrefRoutes = require('./workoutPrefRoutes');
 
 router.use('/User', userRoutes);
-router.use('/Login', loginRoutes);
-router.use('/Post', postRoutes);
+// router.use('/Login', loginRoutes);
+// router.use('/Post', postRoutes);
 router.use('/WorkoutPref', workoutPrefRoutes);
 
 module.exports = router;
