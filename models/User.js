@@ -2,11 +2,15 @@
 const { DECIMAL } = require("sequelize");
 const { INTEGER } = require("sequelize");
 const { Model, DataTypes } = require("sequelize");
+const bcrypt = require('bcrypt');
 // import our database connection from config.js
 const sequelize = require("../config/connection");
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class User extends Model {}
+class User extends Model {checkPw(input) {
+  //added bcrypt for passwords directly to model
+  return bcrypt.compareSync(input, this.password)
+}}
 
 // set up fields and rules for Product model
 User.init({
@@ -38,6 +42,10 @@ User.init({
       isEmail: true,
     },
   },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  }
 },
 {
     sequelize,

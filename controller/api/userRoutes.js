@@ -1,10 +1,12 @@
 // const router = require('express').Router();
 // const { User, } = require('../../models');
+// const bcrypt = require('bcrypt');
 
 // router.post('/', async (req, res) => {
 //     try {
 //       const userInfo = await User.create(req.body);
-  
+        //added bcrypt to hash passwords
+//       newUser.password = await bcrypt.hash(req.body.password, 10);
 //       req.session.save(() => {
 //         req.session.user_id = userInfo.id;
 //         req.session. = true;
@@ -27,7 +29,7 @@
 //         return;
 //       }
   
-//       const correctPassword = await userInfo.checkPassword(req.body.password);
+//       const correctPassword = await userInfo.checkPw(req.body.password);
   
 //       if (!correctPassword) {
 //         res
