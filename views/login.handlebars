@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+</head>
+<body>
 <section class="base">
   <div class="col-md-6">
     <h2>Login</h2>
@@ -45,9 +54,22 @@
             </div>
 
         </div>
-      </div>
-      <div>
         
+      </div>
+        <div class="form-group">
+        
+        <label for="wrkt-diff">What is your preferred workout type?</label>
+        
+        <div class="dropdown">
+      
+            <button class="dwnbtn">Select Type.</button>
+            <div class="drpdwn-content">
+                <a href="#">{{type}}</a>
+            </div>
+
+        </div>
+      <div>
+
       </div>
 
       <div class="form-group">
@@ -56,3 +78,5 @@
     </form>
   </div>
 </div>
+</body>
+</html>
