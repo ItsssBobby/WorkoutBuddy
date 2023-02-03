@@ -44,8 +44,8 @@ WorkoutPref.init({
     type: DataTypes.ENUM,
     values: [
       'beginner',
-'intermediate',
-'expert'
+      'intermediate',
+      'expert'
     ]
   }
 },
