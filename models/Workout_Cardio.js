@@ -19,6 +19,10 @@ WorkoutCardio.init(
     workoutType: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: "workoutPref",
+        key: "workoutType",
+      },
       validate: {
         is: ["cardio"],
         notContains: " ",
@@ -28,6 +32,10 @@ WorkoutCardio.init(
     difficulty: {
       type: DataTypes.STRING,
       values: ["beginner", "intermediate", "expert"],
+      references: {
+        model: "workoutPref",
+        key: "difficulty",
+      },
     },
     workoutDesc: {
       type: DataTypes.TEXT,

@@ -19,6 +19,10 @@ WorkoutStrongman.init(
     workoutType: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: "workoutPref",
+        key: "workoutType",
+      },
       validate: {
         is: ["strongman"],
         notContains: " ",
@@ -28,6 +32,10 @@ WorkoutStrongman.init(
     difficulty: {
       type: DataTypes.STRING,
       values: ["beginner", "intermediate", "expert"],
+      references: {
+        model: "workoutPref",
+        key: "difficulty",
+      },
     },
     workoutDesc: {
       type: DataTypes.TEXT,
