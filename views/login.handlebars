@@ -29,17 +29,25 @@
     <h2>Sign up</h2>
 
     <form class="signup">
+      
       <div class="form-group">
+        
         <label for="name-signup">name:</label>
         <input class="form-input" type="text" id="name-signup" />
+      
       </div>
+      
       <div class="form-group">
+        
         <label for="email-signup">email:</label>
         <input class="form-input" type="text" id="email-signup" />
+      
       </div>
       <div class="form-group">
+        
         <label for="password-signup">password:</label>
         <input class="form-input" type="password" id="password-signup" />
+      
       </div>
 
       <div class="form-group">
@@ -48,10 +56,13 @@
         
         <div class="dropdown">
       
-            <button class="dwnbtn">Select a difficulty.</button>
-            <div class="drpdwn-content">
-                <a href="#">{{difficulty}}</a>
-            </div>
+           <label for="diffifulty">Choose a difficulty</label>
+           
+           <select name="difficulty" id="difficulty">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">intermediate</option>
+            <option value="expert">Expert</option>
+           </select>
 
         </div>
         
@@ -61,12 +72,19 @@
         <label for="wrkt-diff">What is your preferred workout type?</label>
         
         <div class="dropdown">
-      
-            <button class="dwnbtn">Select Type.</button>
-            <div class="drpdwn-content">
-                <a href="#">{{type}}</a>
-            </div>
 
+           <label for="diffifulty">Choose a difficulty</label>
+           
+           <select name="difficulty" id="difficulty">
+            <option value="cardio">Cardio</option>
+            <option value="olympic-weightlifting">Olympic Weightlifting</option>
+            <option value="plyometrics">Plyometrics</option>
+            <option value="powerlifting">Powerlifting</option>
+            <option value="strength">Strength</option>
+            <option value="stretching">Stretching</option>
+            <option value="strongman">Strongman</option>
+           </select>
+        
         </div>
       <div>
 
