@@ -45,7 +45,6 @@ Profile.init(
         isLowercase: true,
         notNull: true,
         len: [6, 13],
-        not: ["^[a-z]+$", "i"],
       },
     },
     password: {
