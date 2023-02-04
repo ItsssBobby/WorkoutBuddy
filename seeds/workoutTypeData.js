@@ -1,4 +1,4 @@
-[
+const workoutStrenghtData =  [
     {
         "id": 1,
         "workout-type": "strength",
