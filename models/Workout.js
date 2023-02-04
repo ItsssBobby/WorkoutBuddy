@@ -5,10 +5,10 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class WorkoutStrongman extends Model {}
+class Workout extends Model {}
 
 // set up fields and rules for Product model
-WorkoutStrongman.init(
+Workout.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,29 +16,34 @@ WorkoutStrongman.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    workoutType: {
-      type: DataTypes.STRING,
+    profileId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "workoutPref",
-        key: "workoutType",
+        model: "profile",
+        key: "id",
       },
+    },
+    workoutType: {
+      type: DataTypes.ENUM,
+      values: [
+        "cardio",
+        "olympic_weightlifting",
+        "plyometrics",
+        "powerlifting",
+        "strength",
+        "stretching",
+        "strongman",
+      ],
+      allowNull: false,
       validate: {
-        is: ["strongman"],
-        notContains: " ",
         isAlpha: true,
+        notContains: " ",
       },
     },
     difficulty: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM,
       values: ["beginner", "intermediate", "expert"],
-      references: {
-        model: "workoutPref",
-        key: "difficulty",
-      },
-    },
-    workoutDesc: {
-      type: DataTypes.TEXT,
     },
   },
   {
@@ -46,8 +51,8 @@ WorkoutStrongman.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "workoutStrongman",
+    modelName: "workout",
   }
 );
 
-module.exports = WorkoutStrongman;
+module.exports = Workout;

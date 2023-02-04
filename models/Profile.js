@@ -1,3 +1,4 @@
+// import important parts of sequelize library
 const { DECIMAL } = require("sequelize");
 const { INTEGER } = require("sequelize");
 const { Model, DataTypes } = require("sequelize");
@@ -5,10 +6,9 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class WorkoutCardio extends Model {}
+class Profile extends Model {}
 
-// set up fields and rules for Product model
-WorkoutCardio.init(
+Profile.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,29 +16,41 @@ WorkoutCardio.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    workoutType: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: "workoutPref",
-        key: "workoutType",
-      },
       validate: {
-        is: ["cardio"],
+        isAlpha: true,
         notContains: " ",
+      },
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
         isAlpha: true,
       },
     },
-    difficulty: {
+    email: {
       type: DataTypes.STRING,
-      values: ["beginner", "intermediate", "expert"],
-      references: {
-        model: "workoutPref",
-        key: "difficulty",
+      allowNull: false,
+      validate: {
+        isEmail: true,
       },
     },
-    workoutDesc: {
-      type: DataTypes.TEXT,
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isLowercase: true,
+        notNull: true,
+        len: [6, 13],
+        not: ["^[a-z]+$", "i"],
+      },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
@@ -46,8 +58,8 @@ WorkoutCardio.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "workoutCardio",
+    modelName: "profile",
   }
 );
 
-module.exports = WorkoutCardio;
+module.exports = Profile;
