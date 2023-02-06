@@ -46,7 +46,7 @@ There are three endpoints for you to return data from the workoutBuddy app
 
 ### Create your model and seed it
 * Install the prereques by running:
-        npm run seed
+        `npm run seed`
         
 * Start your server by running:
 `nodemon server.js`
