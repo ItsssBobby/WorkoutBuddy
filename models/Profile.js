@@ -6,10 +6,9 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class Login extends Model {}
+class Profile extends Model {}
 
-// set up fields and rules for Product model
-Login.init(
+Profile.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -17,12 +16,26 @@ Login.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userId: {
-      type: DataTypes.INTEGER,
+    firstName: {
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: "user",
-        key: "id",
+      validate: {
+        isAlpha: true,
+        notContains: " ",
+      },
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: true,
+      },
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true,
       },
     },
     username: {
@@ -32,10 +45,9 @@ Login.init(
         isLowercase: true,
         notNull: true,
         len: [6, 13],
-        not: ["^[a-z]+$", "i"],
       },
     },
-    pwd: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -45,8 +57,8 @@ Login.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "login",
+    modelName: "profile",
   }
 );
 
-module.exports = Login;
+module.exports = Profile;

@@ -1,36 +1,26 @@
 // import models
-const User = require("./User");
-const Login = require("./Login");
-const WorkoutPref = require("./WorkoutPref");
+const Profile = require("./Profile");
+const Workout = require("./Workout");
 const Post = require("./Post");
 
-User.hasOne(WorkoutPref)
 
-WorkoutPref.belongsTo(User, {
-    foreignKey: "userId",
+// Profile relationship with Workout
+Profile.hasOne(Workout)
+Workout.belongsTo(Profile, {
+    foreignKey: "profileId",
     onDelete: 'CASCADE',
 })
 
 
-// User belongsTo Login
-User.hasOne(Login)
-
-Login.belongsTo(User, {
-    foreignKey: 'userId',
-    onDelete: 'CASCADE'
-})
-
-
-User.hasMany(Post)
-
-Post.belongsTo(User, {
-    foreignKey: 'userId',
+// Profile relationship with Post
+Profile.hasMany(Post)
+Post.belongsTo(Profile, {
+    foreignKey: 'profileId',
     onDelete: 'CASCADE'
 })
 
 module.exports = {
-    User,
-    WorkoutPref, 
-    Login, 
-    Post,
+    Profile,
+    Workout, 
+    Post
 }

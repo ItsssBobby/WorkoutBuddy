@@ -17,11 +17,11 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userId: {
+    profileId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "user",
+        model: "profile",
         key: "id",
       },
     },
