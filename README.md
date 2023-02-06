@@ -46,8 +46,40 @@ There are three endpoints for you to return data from the workoutBuddy app
 
 ### Create your model and seed it
 * Install the prereques by running:
-
         npm run seed
+        
 * Start your server by running:
+`nodemon server.js`
+
 
         `nodemon server.js`
+        
+## Credits
+[Jamaia Butler](https://github.com/JamaiaB)
+[Beto De Amras](https://github.com/nosbeto)
+[Charles Putney](https://github.com/putput10)
+[Robert McMullen](https://github.com/ItsssBobby)
+[Brandon Grady](https://github.com/nbhsbg53)
+
+## License
+MIT License
+
+Copyright (c) [2023] [WorkoutBuddy]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
